@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-//IMPORT THE SLICE HERE
+import sortingReducer from "./features/theNumbers/sortingSlice";
 
 const store = configureStore({
   reducer: {
-    //THE REDUCER
+    sorting: sortingReducer,
   },
 });
 export default store;
