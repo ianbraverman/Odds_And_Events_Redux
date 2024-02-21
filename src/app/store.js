@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import sortingReducer from "./features/theNumbers/sortingSlice";
+import sortingReducer from "../features/theNumbers/sortingSlice";
 
 const store = configureStore({
   reducer: {

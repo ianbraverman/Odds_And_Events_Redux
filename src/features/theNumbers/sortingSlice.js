@@ -24,15 +24,28 @@ const sortingSlice = createSlice({
     sortOne: (state) => {
       const firstNumber = state.bank.shift();
       if (firstNumber) {
-        sort(firstNumber);
+        if (firstNumber % 2 === 0) {
+          state.evens.push(firstNumber);
+        } else {
+          state.odds.push(firstNumber);
+        }
       }
     },
     sortAll: (state) => {
-      state.bank.forEach(sort);
+      const bankLength = state.bank.length;
+      for (let i = 0; i < bankLength; i++) {
+        const currentNumber = state.bank[i];
+        if (currentNumber % 2 === 0) {
+          state.evens.push(currentNumber);
+        } else {
+          state.odds.push(currentNumber);
+        }
+      }
       state.bank = [];
     },
   },
 });
+
 export const { addNumber, sortOne, sortAll } = sortingSlice.actions;
 
 export const selectOdds = (store) => store.sorting.odds;
